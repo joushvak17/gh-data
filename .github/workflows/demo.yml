@@ -27,14 +27,16 @@ jobs:
         run: npm run build
       # Upload job artifacts
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           # Give the artifact a name
           name: dist-files
           # The path to the artifact
-          path: |
-            dist-files
-            package.json
+          path: dist
+          # Additional files to include in the artifact
+          # path: |
+          #   dist-files
+          #   package.json
   deploy:
     needs: build
     runs-on: ubuntu-latest
